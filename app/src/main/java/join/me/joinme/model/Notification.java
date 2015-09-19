@@ -1,5 +1,7 @@
 package join.me.joinme.model;
 
+import android.app.Activity;
+
 /**
  * Created by mismayil on 19/09/15.
  */

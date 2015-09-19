@@ -10,9 +10,16 @@ public class JoinMeActivity {
     private Action action;
     private Location location;
     private ArrayList<User> buddies;
+<<<<<<< HEAD
+
+    private ArrayList<User> cheers;
+
+    JoinMeActivity(User owner, Action action, Location location, ArrayList<User> buddies, ArrayList<User> cheers) {
+=======
     private ArrayList<User> cheers;
 
     JoinMeActivity(User owner, Action action, Location location, ArrayList<User> buddies, ArrayList<User> cheers){
+>>>>>>> mismayil/master
         this.owner = owner;
         this.action = action;
         this.location = location;
@@ -20,37 +27,69 @@ public class JoinMeActivity {
         this.cheers = cheers;
     }
 
+<<<<<<< HEAD
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
+=======
     public ArrayList<User> getCheers() {
         return cheers;
     }
 
     public ArrayList<User> getBuddies() {
         return buddies;
+>>>>>>> mismayil/master
     }
 
     public Action getAction() {
         return action;
     }
 
-    public Location getLocation() {
-        return location;
-    }
-
-    public User getOwner() {
-        return owner;
-    }
-
+<<<<<<< HEAD
     public void setAction(Action action) {
         this.action = action;
     }
 
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public ArrayList<User> getBuddies() {
+        return buddies;
+    }
+
     public void setBuddies(ArrayList<User> buddies) {
         this.buddies = buddies;
+=======
+    public Location getLocation() {
+        return location;
+    }
+>>>>>>> mismayil/master
+
+
+<<<<<<< HEAD
+=======
+    public void setAction(Action action) {
+        this.action = action;
+>>>>>>> mismayil/master
+    }
+
+    public ArrayList<User> getCheers() {
+        return cheers;
     }
 
     public void setCheers(ArrayList<User> cheers) {
         this.cheers = cheers;
     }
+<<<<<<< HEAD
+=======
 
     public void setLocation(Location location) {
         this.location = location;
@@ -59,4 +98,5 @@ public class JoinMeActivity {
     public void setOwner(User owner) {
         this.owner = owner;
     }
+>>>>>>> mismayil/master
 }

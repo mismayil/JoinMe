@@ -30,11 +30,14 @@
             android:name="join.me.joinme.MainActivity"
             android:label="@string/title_activity_main" >
         </activity>
+<<<<<<< HEAD
+=======
         <activity
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+>>>>>>> mismayil/master
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
