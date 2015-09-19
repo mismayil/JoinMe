@@ -16,7 +16,7 @@ import join.me.joinme.model.JoinMeActivity;
 public class ActivityFeedFragment extends Fragment {
     private ListView lv;
     private CustomActivityListAdapter lvAdapter;
-    private ArrayList<JoinMeActivity> joinMeActivityArray;
+    private ArrayList<JoinMeActivity> joinMeActivityArray = new ArrayList<>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

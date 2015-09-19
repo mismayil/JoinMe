@@ -37,8 +37,8 @@ public class CustomHistoryListAdapter extends ArrayAdapter<JoinMeActivity> {
 
         joinNumberText.setText(getItem(position).getBuddies().size());
         cheerNumberText.setText(getItem(position).getCheers().size());
-        activityText.setText(getItem(position).getAction());
-        addressText.setText(getItem(position).getAction());
+        activityText.setText(getItem(position).getAction().getDescription());
+        addressText.setText(getItem(position).getAction().getDescription());
         profilePicButton.setImageBitmap(getItem(position).getOwner().getProfilePic());
         return super.getView(position, convertView, parent);
     }

@@ -9,7 +9,8 @@
         android:layout_height="wrap_content">
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/whatsHappeningText"
+            android:singleLine="true"
             android:layout_width="341dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
