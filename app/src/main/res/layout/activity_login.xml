@@ -21,12 +21,10 @@
             android:layout_gravity="bottom|center_horizontal"
             android:background="@color/black_overlay" android:orientation="horizontal"
             tools:ignore="UselessParent">
-
             <com.facebook.login.widget.LoginButton
                 android:id="@+id/btn_sign_in" style="?metaButtonBarButtonStyle"
                 android:layout_width="0dp" android:layout_height="wrap_content"
-                android:layout_weight="1" android:text="@string/txt_sign_in_fb"
-                android:onClick="sign_in_fb"/>
+                android:layout_weight="1" android:text="@string/txt_sign_in_fb" />
 
         </LinearLayout>
     </FrameLayout>

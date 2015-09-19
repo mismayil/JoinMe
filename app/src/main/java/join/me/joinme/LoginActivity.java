@@ -146,6 +146,43 @@ public class LoginActivity extends Activity {
         // operations to prevent the jarring behavior of controls going away
         // while interacting with the UI.
         findViewById(R.id.btn_sign_in).setOnTouchListener(mDelayHideTouchListener);
+
+        LoginButton loginButton = (LoginButton) findViewById(R.id.btn_sign_in);
+        loginButton.setReadPermissions(Arrays.asList("public_profile"));
+
+        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                GraphRequest request = GraphRequest.newMeRequest(loginResult.getAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
+                    @Override
+                    public void onCompleted(JSONObject jsonObject, GraphResponse graphResponse) {
+                        Log.v("User Info:", graphResponse.toString());
+                    }
+                });
+                Bundle parameters = new Bundle();
+                parameters.putString("fields", "id, name, first_name, last_name");
+                Log.v("hello", "I was here");
+                request.setParameters(parameters);
+                request.executeAsync();
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onCancel() {
+                Log.v("oncancel", "cancel is called");
+            }
+
+            @Override
+            public void onError(FacebookException e) {
+                alertMessage("Please, log in with your own facebook account", getApplicationContext());
+            }
+        });
+//        Profile profile = Profile.getCurrentProfile();
+//        Log.v("FirstName", profile.getFirstName());
+//        Log.v("Lastname", profile.getLastName());
+//        Log.v("Pic", profile.getProfilePictureUri(50, 50).toString());
+//        startActivity(intent);
     }
 
     @Override
@@ -191,50 +228,6 @@ public class LoginActivity extends Activity {
         mHideHandler.postDelayed(mHideRunnable, delayMillis);
     }
 
-    public void sign_in_fb(View view) {
-        LoginButton loginButton = (LoginButton) view.findViewById(R.id.btn_sign_in);
-        loginButton.setReadPermissions(Arrays.asList("public_profile"));
-        Intent intent = new Intent(this, MainActivity.class);
-        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-            @Override
-            public void onSuccess(LoginResult loginResult) {
-                GraphRequest request = GraphRequest.newMeRequest(loginResult.getAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
-                    @Override
-                    public void onCompleted(JSONObject jsonObject, GraphResponse graphResponse) {
-                        Log.v("User Info:", graphResponse.toString());
-                    }
-                });
-                Bundle parameters = new Bundle();
-                parameters.putString("fields", "id, name, first_name, last_name");
-                Log.v("hello", "I was here");
-                request.setParameters(parameters);
-                request.executeAsync();
-            }
-
-            @Override
-            public void onCancel() {
-                Log.v("oncancel", "cancel is called");
-            }
-
-            @Override
-            public void onError(FacebookException e) {
-                alertMessage("Please, log in with your own facebook account", getApplicationContext());
-            }
-        });
-//        Profile profile = Profile.getCurrentProfile();
-//        Log.v("FirstName", profile.getFirstName());
-//        Log.v("Lastname", profile.getLastName());
-//        Log.v("Pic", profile.getProfilePictureUri(50, 50).toString());
-        startActivity(intent);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        callbackManager.onActivityResult(requestCode, resultCode, data);
-        Log.v("tag", "onactivityresult");
-    }
-
     public static void alertMessage(String msg, Context ctx) {
         AlertDialog.Builder builder = new AlertDialog.Builder(ctx);
         builder.setMessage(msg);
@@ -246,6 +239,12 @@ public class LoginActivity extends Activity {
         });
         AlertDialog dialog = builder.create();
         dialog.show();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        callbackManager.onActivityResult(requestCode, resultCode, data);
     }
 
     public void showHashKey() {
