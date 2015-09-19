@@ -5,13 +5,22 @@ package join.me.joinme.model;
  */
 public class Action {
     private String description;
+    private String address;
 
     public String getDescription() {
         return description;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public Action(String description) {

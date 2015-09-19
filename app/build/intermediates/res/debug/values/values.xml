@@ -52,6 +52,7 @@
     <dimen name="navigation_drawer_width">240dp</dimen>
     <!-- From: file:/C:/Users/Daniel/Documents/JoinMe/app/src/main/res/values/strings.xml -->
     <eat-comment/>
+    <string name="Cancel">Cancel</string>
     <string name="action_example">Example action</string>
     <string name="action_settings">Settings</string>
     <string name="app_name">JoinMe</string>
@@ -73,14 +74,22 @@
     <string name="com_facebook_send_button_text">Send</string>
     <string name="com_facebook_share_button_text">Share</string>
     <string name="com_facebook_tooltip_default">New! You\'re in control - choose what info you want to share with apps.</string>
+    <!-- From: file:/C:/Users/Daniel/Documents/JoinMe/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="facebook_app_id">1694696077433148</string>
+    <string name="gps_network_not_enabled">This application requires Location Services. Would you like to enable it?</string>
+    <!-- From: file:/C:/Users/Daniel/Documents/JoinMe/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.6.0/res/values/values.xml -->
+    <eat-comment/>
     <string name="messenger_send_button_text">Send</string>
     <!-- From: file:/C:/Users/Daniel/Documents/JoinMe/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="open_location_settings">Enable</string>
     <string name="title_activity_feed">Activity Feed</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="title_home">Home</string>
     <string name="title_nearby">Nearby</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_profile">Profile</string>
