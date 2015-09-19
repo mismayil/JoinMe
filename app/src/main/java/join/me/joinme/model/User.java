@@ -1,5 +1,8 @@
 package join.me.joinme.model;
 
+import android.graphics.Bitmap;
+import android.media.Image;
+
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -8,6 +11,7 @@ import java.util.Date;
  */
 public class User {
     private String name;
+    private Bitmap profilePic;
     private Date birthday;
     private ArrayList<JoinMeActivity> activities;
 
@@ -25,6 +29,10 @@ public class User {
         return this.birthday;
     }
 
+    public Bitmap getProfilePic() {
+        return profilePic;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -35,6 +43,10 @@ public class User {
 
     public void setActivities(ArrayList<JoinMeActivity> activities) {
         this.activities = activities;
+    }
+
+    public void setProfilePic(Bitmap profilePic) {
+        this.profilePic = profilePic;
     }
 
     public ArrayList<JoinMeActivity> getActivities() {
