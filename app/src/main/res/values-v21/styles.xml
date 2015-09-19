@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <dimen name="mainTextSize">20dp</dimen>
     <dimen name="secondaryTextSize">10dp</dimen>
     <style name="AppTheme" parent="android:Theme.Material.Light">
 =======
     <style name="AppTheme" parent="android:Theme.Material.Light.NoActionBar">
 >>>>>>> origin/master
+=======
+    <style name="AppTheme" parent="android:Theme.Material.Light">
+>>>>>>> mismayil/master
     </style>
 
     <dimen name="mainTextSize">20dp</dimen>

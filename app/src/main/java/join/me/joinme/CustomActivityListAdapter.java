@@ -35,7 +35,11 @@ public class CustomActivityListAdapter extends ArrayAdapter<JoinMeActivity> {
         joinButton.setText("Join Me!");
         cheerButton.setText(getItem(position).getCheers().size());
         activityText.setText(getItem(position).getAction().getDescription());
+<<<<<<< HEAD
         addressText.setText(getItem(position).getAction().getAddress());
+=======
+        addressText.setText(getItem(position).getAction().getDescription());
+>>>>>>> mismayil/master
         profilePicButton.setImageBitmap(getItem(position).getOwner().getProfilePic());
         return super.getView(position, convertView, parent);
     }

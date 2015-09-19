@@ -4,13 +4,41 @@ import join.me.joinme.util.SystemUiHider;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.ContactsContract;
+import android.util.Base64;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+
+import com.facebook.CallbackManager;
+import com.facebook.FacebookActivity;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
+import com.facebook.Profile;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
+
+import org.json.JSONObject;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import static android.content.pm.PackageManager.*;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -47,13 +75,15 @@ public class LoginActivity extends Activity {
      */
     private SystemUiHider mSystemUiHider;
 
+    CallbackManager callbackManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.activity_login);
-
         FacebookSdk.sdkInitialize(getApplicationContext());
+        callbackManager = new CallbackManager.Factory().create();
+        showHashKey();
+        setContentView(R.layout.activity_login);
 
         final View controlsView = findViewById(R.id.fullscreen_content_controls);
         final View contentView = findViewById(R.id.fullscreen_content);
@@ -115,7 +145,7 @@ public class LoginActivity extends Activity {
         // Upon interacting with UI controls, delay any scheduled hide()
         // operations to prevent the jarring behavior of controls going away
         // while interacting with the UI.
-        findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
+        findViewById(R.id.btn_sign_in).setOnTouchListener(mDelayHideTouchListener);
     }
 
     @Override
@@ -162,7 +192,76 @@ public class LoginActivity extends Activity {
     }
 
     public void sign_in_fb(View view) {
+        LoginButton loginButton = (LoginButton) view.findViewById(R.id.btn_sign_in);
+        loginButton.setReadPermissions(Arrays.asList("public_profile"));
         Intent intent = new Intent(this, MainActivity.class);
+        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                GraphRequest request = GraphRequest.newMeRequest(loginResult.getAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
+                    @Override
+                    public void onCompleted(JSONObject jsonObject, GraphResponse graphResponse) {
+                        Log.v("User Info:", graphResponse.toString());
+                    }
+                });
+                Bundle parameters = new Bundle();
+                parameters.putString("fields", "id, name, first_name, last_name");
+                Log.v("hello", "I was here");
+                request.setParameters(parameters);
+                request.executeAsync();
+            }
+
+            @Override
+            public void onCancel() {
+                Log.v("oncancel", "cancel is called");
+            }
+
+            @Override
+            public void onError(FacebookException e) {
+                alertMessage("Please, log in with your own facebook account", getApplicationContext());
+            }
+        });
+//        Profile profile = Profile.getCurrentProfile();
+//        Log.v("FirstName", profile.getFirstName());
+//        Log.v("Lastname", profile.getLastName());
+//        Log.v("Pic", profile.getProfilePictureUri(50, 50).toString());
         startActivity(intent);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        callbackManager.onActivityResult(requestCode, resultCode, data);
+        Log.v("tag", "onactivityresult");
+    }
+
+    public static void alertMessage(String msg, Context ctx) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(ctx);
+        builder.setMessage(msg);
+        builder.setPositiveButton(R.string.btn_ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    public void showHashKey() {
+        try {
+            PackageInfo info = getPackageManager().getPackageInfo(
+                    "join.me.joinme",
+                    PackageManager.GET_SIGNATURES);
+            for (Signature signature : info.signatures) {
+                MessageDigest md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                Log.v("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
+            }
+        } catch (NameNotFoundException e) {
+
+        } catch (NoSuchAlgorithmException e) {
+
+        }
     }
 }

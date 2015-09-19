@@ -18,11 +18,12 @@ import join.me.joinme.model.JoinMeActivity;
 public class ProfileFragment extends Fragment {
     private ListView lv;
     private CustomHistoryListAdapter lvAdapter;
-    private ArrayList<JoinMeActivity> joinMeActivityArray;
+    private ArrayList<JoinMeActivity> joinMeActivityArray = new ArrayList<>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        joinMeActivityArray = new ArrayList<>();
     }
 
     @Nullable
@@ -37,7 +38,7 @@ public class ProfileFragment extends Fragment {
         //Fill in joinMeActivityArray
 
         lvAdapter = new CustomHistoryListAdapter(getActivity(),joinMeActivityArray);
-        lv = (ListView) view.findViewById(R.id.joinMeActivityList);;
+        lv = (ListView) view.findViewById(R.id.joinMeActivityList);
         lv.setAdapter(lvAdapter);
 
         super.onViewCreated(view, savedInstanceState);
