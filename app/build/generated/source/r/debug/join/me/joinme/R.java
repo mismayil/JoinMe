@@ -44,8 +44,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     public static final class layout {
         public static final int activity_login=0x7f040000;
         public static final int activity_main=0x7f040001;
-        public static final int fragment_main=0x7f040002;
-        public static final int fragment_navigation_drawer=0x7f040003;
+        public static final int fragment_home=0x7f040002;
+        public static final int fragment_main=0x7f040003;
+        public static final int fragment_navigation_drawer=0x7f040004;
     }
     public static final class menu {
         public static final int global=0x7f090000;
