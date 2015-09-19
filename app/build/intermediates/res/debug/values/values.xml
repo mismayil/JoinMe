@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/home/mismayil/dev/android/projects/JoinMe/app/src/main/res/values/colors.xml -->
+    <!-- From: file:/C:/Users/Daniel/Documents/JoinMe/app/src/main/res/values/colors.xml -->
     <eat-comment/>
     <color name="black_overlay">#66000000</color>
     <declare-styleable name="ButtonBarContainerTheme"><attr format="reference" name="metaButtonBarStyle"/><attr format="reference" name="metaButtonBarButtonStyle"/></declare-styleable>
-    <!-- From: file:/home/mismayil/dev/android/projects/JoinMe/app/src/main/res/values/dimens.xml -->
+    <!-- From: file:/C:/Users/Daniel/Documents/JoinMe/app/src/main/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="navigation_drawer_width">240dp</dimen>
-    <!-- From: file:/home/mismayil/dev/android/projects/JoinMe/app/src/main/res/values/strings.xml -->
+    <!-- From: file:/C:/Users/Daniel/Documents/JoinMe/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="action_example">Example action</string>
     <string name="action_settings">Settings</string>
@@ -24,7 +24,7 @@
     <string name="title_profile">Profile</string>
     <string name="txt_joinMe">JOIN.ME</string>
     <string name="txt_sign_in_fb">sign in with facebook</string>
-    <!-- From: file:/home/mismayil/dev/android/projects/JoinMe/app/src/main/res/values/styles.xml -->
+    <!-- From: file:/C:/Users/Daniel/Documents/JoinMe/app/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="AppTheme" parent="android:Theme.Material.Light">
         <!-- Customize your theme here. -->
