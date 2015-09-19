@@ -265,7 +265,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int fragment_home=0x7f040005;
         public static final int fragment_main=0x7f040006;
         public static final int fragment_navigation_drawer=0x7f040007;
-        public static final int home_list_object=0x7f040008;
+        public static final int home_custom_list_row =0x7f040008;
         public static final int messenger_button_send_blue_large=0x7f040009;
         public static final int messenger_button_send_blue_round=0x7f04000a;
         public static final int messenger_button_send_blue_small=0x7f04000b;

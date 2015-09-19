@@ -1,7 +1,6 @@
 package join.me.joinme;
 
 import android.content.Context;
-import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,8 +8,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
-import java.lang.reflect.Array;
 
 import join.me.joinme.model.JoinMeActivity;
 
@@ -20,14 +17,14 @@ import join.me.joinme.model.JoinMeActivity;
 public class CustomActivityListAdapter extends ArrayAdapter<JoinMeActivity> {
 
     CustomActivityListAdapter(Context context, JoinMeActivity[] activities) {
-        super(context, R.layout.home_list_object, activities);
+        super(context, R.layout.home_custom_list_row, activities);
 
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = LayoutInflater.from(getContext());
-        View customView = inflater.inflate(R.layout.home_list_object, parent, false);
+        View customView = inflater.inflate(R.layout.home_custom_list_row, parent, false);
 
         TextView activityText =  (TextView) customView.findViewById(R.id.activityText);
         TextView addressText = (TextView) customView.findViewById(R.id.addressText);
