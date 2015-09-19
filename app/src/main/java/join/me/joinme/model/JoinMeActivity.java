@@ -12,7 +12,7 @@ public class JoinMeActivity {
     private ArrayList<User> buddies;
     private ArrayList<User> cheers;
 
-    JoinMeActivity(User owner, String action, String location, ArrayList<User> buddies, ArrayList<User> cheers){
+    JoinMeActivity(User owner, Action action, Location location, ArrayList<User> buddies, ArrayList<User> cheers){
         this.owner = owner;
         this.action = action;
         this.location = location;
@@ -28,11 +28,11 @@ public class JoinMeActivity {
         return buddies;
     }
 
-    public String getAction() {
+    public Action getAction() {
         return action;
     }
 
-    public String getLocation() {
+    public Location getLocation() {
         return location;
     }
 
@@ -40,7 +40,7 @@ public class JoinMeActivity {
         return owner;
     }
 
-    public void setAction(String action) {
+    public void setAction(Action action) {
         this.action = action;
     }
 
@@ -52,7 +52,7 @@ public class JoinMeActivity {
         this.cheers = cheers;
     }
 
-    public void setLocation(String location) {
+    public void setLocation(Location location) {
         this.location = location;
     }
 
