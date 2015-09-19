@@ -3,11 +3,16 @@ package join.me.joinme;
 import android.app.Activity;
 
 import android.app.ActionBar;
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -30,6 +35,8 @@ public class MainActivity extends Activity
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
     private CharSequence mTitle;
+    private boolean gps_enabled = false;
+    private boolean network_enabled = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +56,48 @@ public class MainActivity extends Activity
 
         Fragment profileFragment = fm.findFragmentById(R.id.pFragment);
         Fragment homeFragment = fm.findFragmentById(R.id.hFragment);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (!gps_enabled && !network_enabled)
+            isGPSEnabled();
+    }
+
+    private void isGPSEnabled() {
+        LocationManager lm = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+
+        try {
+            gps_enabled = lm.isProviderEnabled(LocationManager.GPS_PROVIDER);
+        } catch (Exception ex) {
+        }
+
+        try {
+            network_enabled = lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+        } catch (Exception ex) {
+        }
+
+        if (!gps_enabled && !network_enabled) {
+            // notify user
+            AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+            dialog.setMessage(this.getResources().getString(R.string.gps_network_not_enabled));
+            dialog.setPositiveButton(this.getResources().getString(R.string.open_location_settings), new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface paramDialogInterface, int paramInt) {
+                    Intent myIntent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                    startActivity(myIntent);
+                }
+            });
+            dialog.setNegativeButton(this.getString(R.string.Cancel), new DialogInterface.OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface paramDialogInterface, int paramInt) {
+                    System.exit(0);
+                }
+            });
+            dialog.show();
+        }
     }
 
     @Override

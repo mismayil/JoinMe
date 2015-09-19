@@ -13,9 +13,7 @@ import java.util.ArrayList;
 
 import join.me.joinme.model.JoinMeActivity;
 
-/**
- * Created by Daniel on 2015-09-19.
- */
+
 public class CustomActivityListAdapter extends ArrayAdapter<JoinMeActivity> {
 
     CustomActivityListAdapter(Context context, ArrayList<JoinMeActivity> activities) {

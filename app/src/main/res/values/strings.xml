@@ -17,5 +17,9 @@
 
     <string name="action_example">Example action</string>
 
+    <string name="gps_network_not_enabled">This application requires Location Services. Would you like to enable it?</string>
+    <string name="open_location_settings">Enable</string>
+    <string name="Cancel">Cancel</string>
+
     <string name="action_settings">Settings</string>
 </resources>
