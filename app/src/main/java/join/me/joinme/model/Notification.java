@@ -25,11 +25,11 @@ public class Notification {
         this.receiver = receiver;
     }
 
-    public Activity getActivity() {
+    public JoinMeActivity getActivity() {
         return activity;
     }
 
-    public void setActivity(Activity activity) {
+    public void setActivity(JoinMeActivity activity) {
         this.activity = activity;
     }
 
@@ -41,7 +41,7 @@ public class Notification {
         this.status = status;
     }
 
-    public Notification(User sender, User receiver, Activity activity, int status) {
+    public Notification(User sender, User receiver, JoinMeActivity activity, int status) {
 
         this.sender = sender;
         this.receiver = receiver;

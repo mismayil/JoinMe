@@ -6,7 +6,7 @@ package join.me.joinme.model;
 public class Cheer {
     private User sender;
     private User receiver;
-    private Activity activity;
+    private JoinMeActivity activity;
 
     public User getSender() {
         return sender;
@@ -24,15 +24,15 @@ public class Cheer {
         this.receiver = receiver;
     }
 
-    public Activity getActivity() {
+    public JoinMeActivity getActivity() {
         return activity;
     }
 
-    public void setActivity(Activity activity) {
+    public void setActivity(JoinMeActivity activity) {
         this.activity = activity;
     }
 
-    public Cheer(User sender, User receiver, Activity activity) {
+    public Cheer(User sender, User receiver, JoinMeActivity activity) {
 
         this.sender = sender;
         this.receiver = receiver;

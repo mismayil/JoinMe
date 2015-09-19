@@ -12,7 +12,7 @@ public class JoinMeActivity {
     private ArrayList<User> buddies;
     private ArrayList<Cheer> cheers;
 
-    public Activity(User owner, Action action, Location location, ArrayList<User> buddies, ArrayList<Cheer> cheers) {
+    public JoinMeActivity(User owner, Action action, Location location, ArrayList<User> buddies, ArrayList<Cheer> cheers) {
         this.owner = owner;
         this.action = action;
         this.location = location;

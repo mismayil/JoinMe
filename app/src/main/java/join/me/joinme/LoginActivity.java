@@ -4,13 +4,30 @@ import join.me.joinme.util.SystemUiHider;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
+
+import com.facebook.CallbackManager;
+import com.facebook.FacebookActivity;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
+
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -50,10 +67,9 @@ public class LoginActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FacebookSdk.sdkInitialize(getApplicationContext());
 
         setContentView(R.layout.activity_login);
-
-        FacebookSdk.sdkInitialize(getApplicationContext());
 
         final View controlsView = findViewById(R.id.fullscreen_content_controls);
         final View contentView = findViewById(R.id.fullscreen_content);
@@ -115,7 +131,7 @@ public class LoginActivity extends Activity {
         // Upon interacting with UI controls, delay any scheduled hide()
         // operations to prevent the jarring behavior of controls going away
         // while interacting with the UI.
-        findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
+        findViewById(R.id.btn_sign_in).setOnTouchListener(mDelayHideTouchListener);
     }
 
     @Override
@@ -162,7 +178,49 @@ public class LoginActivity extends Activity {
     }
 
     public void sign_in_fb(View view) {
+        LoginButton loginButton = (LoginButton) view.findViewById(R.id.btn_sign_in);
+        loginButton.setReadPermissions(Arrays.asList("public_profile"));
+        CallbackManager callbackManager = new CallbackManager.Factory().create();
         Intent intent = new Intent(this, MainActivity.class);
+        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                GraphRequest request = GraphRequest.newMeRequest(loginResult.getAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
+                    @Override
+                    public void onCompleted(JSONObject jsonObject, GraphResponse graphResponse) {
+
+                    }
+                });
+                Bundle parameters = new Bundle();
+                parameters.putString("fields", "id, name, first_name, last_name");
+                request.setParameters(parameters);
+                request.executeAsync();
+            }
+
+            @Override
+            public void onCancel() {
+
+            }
+
+            @Override
+            public void onError(FacebookException e) {
+                alertMessage("Please, log in with your own facebook account", getApplicationContext());
+            }
+        });
+
         startActivity(intent);
+    }
+
+    public static void alertMessage(String msg, Context ctx) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(ctx);
+        builder.setMessage(msg);
+        builder.setPositiveButton(R.string.btn_ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 }
