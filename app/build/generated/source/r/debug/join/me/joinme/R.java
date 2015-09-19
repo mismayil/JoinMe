@@ -60,13 +60,14 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int app_name=0x7f080002;
         public static final int navigation_drawer_close=0x7f080003;
         public static final int navigation_drawer_open=0x7f080004;
-        public static final int title_activity_login=0x7f080005;
-        public static final int title_activity_main=0x7f080006;
-        public static final int title_section1=0x7f080007;
-        public static final int title_section2=0x7f080008;
-        public static final int title_section3=0x7f080009;
-        public static final int txt_joinMe=0x7f08000a;
-        public static final int txt_sign_in_fb=0x7f08000b;
+        public static final int title_activity_feed=0x7f080005;
+        public static final int title_activity_login=0x7f080006;
+        public static final int title_activity_main=0x7f080007;
+        public static final int title_nearby=0x7f080008;
+        public static final int title_notifications=0x7f080009;
+        public static final int title_profile=0x7f08000a;
+        public static final int txt_joinMe=0x7f08000b;
+        public static final int txt_sign_in_fb=0x7f08000c;
     }
     public static final class style {
         /**  Customize your theme here. 

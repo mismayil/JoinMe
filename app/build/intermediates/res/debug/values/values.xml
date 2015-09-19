@@ -16,16 +16,17 @@
     <string name="app_name">JoinMe</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="title_activity_feed">Activity Feed</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_main">MainActivity</string>
-    <string name="title_section1">Section 1</string>
-    <string name="title_section2">Section 2</string>
-    <string name="title_section3">Section 3</string>
+    <string name="title_nearby">Nearby</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_profile">Profile</string>
     <string name="txt_joinMe">JOIN.ME</string>
     <string name="txt_sign_in_fb">sign in with facebook</string>
     <!-- From: file:/home/mismayil/dev/android/projects/JoinMe/app/src/main/res/values/styles.xml -->
     <eat-comment/>
-    <style name="AppTheme" parent="android:Theme.Material">
+    <style name="AppTheme" parent="android:Theme.Material.Light">
         <!-- Customize your theme here. -->
     </style>
     <style name="ButtonBar">
