@@ -14,7 +14,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_toStartOf="@+id/enterButtonHome"
-            android:hint="What's happening?" />
+            android:hint="Search an activity" />
 
         <ImageButton
             android:id="@+id/enterButtonHome"
