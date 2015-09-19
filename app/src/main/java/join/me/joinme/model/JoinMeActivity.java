@@ -12,6 +12,14 @@ public class JoinMeActivity {
     private ArrayList<User> buddies;
     private ArrayList<User> cheers;
 
+    JoinMeActivity(User owner, String action, String location, ArrayList<User> buddies, ArrayList<User> cheers){
+        this.owner = owner;
+        this.action = action;
+        this.location = location;
+        this.buddies = buddies;
+        this.cheers = cheers;
+    }
+
     public ArrayList<User> getCheers() {
         return cheers;
     }

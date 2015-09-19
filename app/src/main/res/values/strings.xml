@@ -6,6 +6,7 @@
     <string name="txt_sign_in_fb">sign in with facebook</string>
     <string name="title_activity_main">MainActivity</string>
 
+    <string name="title_home">Home</string>
     <string name="title_profile">Profile</string>
     <string name="title_activity_feed">Activity Feed</string>
     <string name="title_nearby">Nearby</string>

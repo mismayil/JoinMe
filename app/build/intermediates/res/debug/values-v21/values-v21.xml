@@ -4,6 +4,6 @@
     <eat-comment/>
     <dimen name="mainTextSize">20dp</dimen>
     <dimen name="secondaryTextSize">10dp</dimen>
-    <style name="AppTheme" parent="android:Theme.Material.Light">
+    <style name="AppTheme" parent="android:Theme.Material.Light.NoActionBar">
     </style>
 </resources>

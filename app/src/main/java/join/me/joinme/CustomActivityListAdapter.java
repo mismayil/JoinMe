@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 import join.me.joinme.model.JoinMeActivity;
 
 /**
@@ -16,7 +18,7 @@ import join.me.joinme.model.JoinMeActivity;
  */
 public class CustomActivityListAdapter extends ArrayAdapter<JoinMeActivity> {
 
-    CustomActivityListAdapter(Context context, JoinMeActivity[] activities) {
+    CustomActivityListAdapter(Context context, ArrayList<JoinMeActivity> activities) {
         super(context, R.layout.home_custom_list_row, activities);
 
     }

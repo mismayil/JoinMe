@@ -6,7 +6,7 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/profilePicButton"
+        android:id="@+id/profilePicButtonHistory"
         android:src="@mipmap/ic_launcher"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp" />
@@ -16,20 +16,57 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="activityText"
-        android:id="@+id/activityText"
+        android:id="@+id/activityTextHistory"
         android:layout_gravity="center_horizontal"
         android:textSize="@dimen/mainTextSize"
-        android:layout_alignTop="@+id/profilePicButton"
-        android:layout_toEndOf="@+id/profilePicButton" />
+        android:layout_alignTop="@+id/profilePicButtonHistory"
+        android:layout_toEndOf="@+id/profilePicButtonHistory" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="addressText"
-        android:id="@+id/addressText"
+        android:id="@+id/addressTextHistory"
         android:textSize="@dimen/secondaryTextSize"
-        android:layout_below="@+id/activityText"
-        android:layout_alignStart="@+id/activityText" />
+        android:layout_below="@+id/activityTextHistory"
+        android:layout_alignStart="@+id/activityTextHistory" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/join"
+        android:src="@drawable/join"
+        android:layout_below="@+id/profilePicButtonHistory"
+        android:layout_alignStart="@+id/profilePicButtonHistory" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="x"
+        android:id="@+id/joinNumberText"
+        android:layout_alignBottom="@+id/join"
+        android:layout_toEndOf="@+id/join"
+        android:layout_marginLeft="5dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cheer"
+        android:src="@drawable/cheer"
+        android:layout_marginLeft="20dp"
+        android:layout_alignBottom="@+id/joinNumberText"
+        android:layout_toEndOf="@+id/joinNumberText" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="y"
+        android:id="@+id/cheerNumberText"
+        android:layout_alignBottom="@+id/cheer"
+        android:layout_toEndOf="@+id/cheer"
+        android:layout_marginLeft="5dp" />
 
 </RelativeLayout>
