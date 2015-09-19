@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
+import com.facebook.FacebookSdk;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -51,6 +52,8 @@ public class LoginActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_login);
+
+        FacebookSdk.sdkInitialize(getApplicationContext());
 
         final View controlsView = findViewById(R.id.fullscreen_content_controls);
         final View contentView = findViewById(R.id.fullscreen_content);
