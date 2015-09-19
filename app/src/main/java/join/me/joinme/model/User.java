@@ -9,9 +9,9 @@ import java.util.Date;
 public class User {
     private String name;
     private Date birthday;
-    private ArrayList<Activity> activities;
+    private ArrayList<JoinMeActivity> activities;
 
-    public User(String name, Date birthday, ArrayList<Activity> activities) {
+    public User(String name, Date birthday, ArrayList<JoinMeActivity> activities) {
         this.name = name;
         this.birthday = birthday;
         this.activities = activities;
@@ -33,11 +33,11 @@ public class User {
         this.birthday = birthday;
     }
 
-    public void setActivities(ArrayList<Activity> activities) {
+    public void setActivities(ArrayList<JoinMeActivity> activities) {
         this.activities = activities;
     }
 
-    public ArrayList<Activity> getActivities() {
+    public ArrayList<JoinMeActivity> getActivities() {
         return this.activities;
     }
 }

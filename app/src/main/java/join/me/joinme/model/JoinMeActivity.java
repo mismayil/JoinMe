@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Created by mismayil on 19/09/15.
  */
-public class Activity {
+public class JoinMeActivity {
     private User owner;
     private Action action;
     private Location location;

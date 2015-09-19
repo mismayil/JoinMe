@@ -6,7 +6,7 @@ package join.me.joinme.model;
 public class Notification {
     private User sender;
     private User receiver;
-    private Activity activity;
+    private JoinMeActivity activity;
     private int status;
 
     public User getSender() {
