@@ -250,11 +250,6 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     public static final class layout {
         public static final int activity_login=0x7f040000;
         public static final int activity_main=0x7f040001;
-<<<<<<< HEAD
-        public static final int fragment_home=0x7f040002;
-        public static final int fragment_main=0x7f040003;
-        public static final int fragment_navigation_drawer=0x7f040004;
-=======
         public static final int com_facebook_activity_layout=0x7f040002;
         public static final int com_facebook_login_fragment=0x7f040003;
         public static final int com_facebook_tooltip_bubble=0x7f040004;
@@ -266,7 +261,6 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int messenger_button_send_white_large=0x7f04000a;
         public static final int messenger_button_send_white_round=0x7f04000b;
         public static final int messenger_button_send_white_small=0x7f04000c;
->>>>>>> mismayil/master
     }
     public static final class menu {
         public static final int global=0x7f090000;
