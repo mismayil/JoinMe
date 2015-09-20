@@ -38,6 +38,9 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import com.google.android.gms.maps.GoogleMap;
+
+
 import static android.content.pm.PackageManager.*;
 
 /**
@@ -47,6 +50,9 @@ import static android.content.pm.PackageManager.*;
  * @see SystemUiHider
  */
 public class LoginActivity extends Activity {
+
+    private boolean gps_enabled = false;
+    private boolean network_enabled = false;
     /**
      * Whether or not the system UI should be auto-hidden after
      * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.
