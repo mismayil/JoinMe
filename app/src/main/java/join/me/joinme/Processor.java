@@ -9,8 +9,11 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -74,7 +77,14 @@ public class Processor extends Activity {
             String url = BASE_URL + ADD_USER + "userid=" + user.getUserid() + "&" + "firstname=" + user.getFirstname() + "&" + "lastname=" + user.getLastname() + "&" + "gender=" + user.getGender();
             SendDataTask sendDataTask = new SendDataTask(new AsyncResponse() {
                 @Override
-                public void processFinish(Object output) {
+                public void processFinish(String output) {
+                    try {
+                        JSONObject jsonObject = new JSONObject(output);
+                        Log.v("response", jsonObject.getString("Status"));
+                        Log.v("response", jsonObject.getString("Message"));
+                    } catch (Exception e) {
+
+                    }
 
                 }
             });
@@ -82,6 +92,8 @@ public class Processor extends Activity {
             sendDataTask.execute(url);
         }
     }
+
+
 
     public static void alertMessage(String msg, Context ctx) {
         AlertDialog.Builder builder = new AlertDialog.Builder(ctx);
@@ -97,7 +109,7 @@ public class Processor extends Activity {
     }
 }
 
-class SendDataTask extends AsyncTask<Object, Object, Object> {
+class SendDataTask extends AsyncTask<String, Void, String> {
 
     public AsyncResponse asyncResponse = null;
 
@@ -106,17 +118,16 @@ class SendDataTask extends AsyncTask<Object, Object, Object> {
     }
 
     @Override
-    protected Object doInBackground(Object... urls) {
+    protected String doInBackground(String... urls) {
         String json = null;
 
         try {
             URL urlObj = null;
             HttpURLConnection con = null;
             int response = 200;
-            String[] strurls = Arrays.copyOf(urls, urls.length, String[].class);
 
             for (int i = 0; i < urls.length; i++) {
-                urlObj = new URL(strurls[i]);
+                urlObj = new URL(urls[i]);
                 con = (HttpURLConnection) urlObj.openConnection();
                 con.setRequestMethod("GET");
                 response = con.getResponseCode();
@@ -126,9 +137,7 @@ class SendDataTask extends AsyncTask<Object, Object, Object> {
                 while ((output = buf.readLine()) != null) {
                     sbuf.append(output);
                 }
-                String jsonp = sbuf.toString();
-                json = jsonp.substring(jsonp.indexOf("(") + 1,
-                        jsonp.lastIndexOf(")"));
+                json = sbuf.toString();
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -137,7 +146,7 @@ class SendDataTask extends AsyncTask<Object, Object, Object> {
     }
 
     @Override
-    protected void onPostExecute(Object result) {
+    protected void onPostExecute(String result) {
         asyncResponse.processFinish(result);
     }
 }
