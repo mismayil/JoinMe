@@ -364,6 +364,7 @@
     <eat-comment/>
     <string name="facebook_app_id">1694696077433148</string>
     <string name="gps_network_not_enabled">This application requires Location Services. Would you like to enable it?</string>
+    <string name="hello_world">Hello world!</string>
     <!-- From: file:/C:/Users/Daniel/Documents/JoinMe/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.6.0/res/values/values.xml -->
     <eat-comment/>
     <string name="messenger_send_button_text">Send</string>
@@ -394,6 +395,7 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_processor">Processor</string>
     <string name="title_home">Home</string>
     <string name="title_nearby">Nearby</string>
     <string name="title_notifications">Notifications</string>

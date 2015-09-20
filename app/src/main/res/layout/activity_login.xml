@@ -31,8 +31,7 @@
                 android:id="@+id/btn_sign_in" style="?metaButtonBarButtonStyle"
                 android:layout_width="300dp" android:layout_height="wrap_content"
                 android:layout_weight="1" android:text="@string/txt_sign_in_fb"
-                android:textColor="@android:color/white"
-                android:onClick="sign_in_fb"/>
+                android:textColor="@android:color/white" />
 
         </LinearLayout>
     </FrameLayout>
