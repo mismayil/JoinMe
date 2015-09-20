@@ -84,7 +84,7 @@ public class LoginActivity extends Activity {
         callbackManager = new CallbackManager.Factory().create();
         showHashKey();
         setContentView(R.layout.activity_login);
-
+        getActionBar().hide();
         final View controlsView = findViewById(R.id.fullscreen_content_controls);
         final View contentView = findViewById(R.id.fullscreen_content);
 

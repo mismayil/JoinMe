@@ -1,4 +1,4 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:background="#0099cc"
     tools:context="join.me.joinme.LoginActivity">
@@ -6,15 +6,20 @@
     <!-- The primary full-screen view. This can be replaced with whatever view
          is needed to present your content, e.g. VideoView, SurfaceView,
          TextureView, etc. -->
-    <TextView android:id="@+id/fullscreen_content" android:layout_width="match_parent"
-        android:layout_height="match_parent" android:keepScreenOn="true" android:textColor="#33b5e5"
+    <TextView android:id="@+id/fullscreen_content" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:keepScreenOn="true" android:textColor="@android:color/white"
         android:textStyle="bold" android:textSize="50sp" android:gravity="center"
-        android:text="@string/txt_joinMe" />
+        android:text="@string/txt_joinMe"
+        android:layout_above="@+id/frameLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="61dp" />
 
     <!-- This FrameLayout insets its children based on system windows using
          android:fitsSystemWindows. -->
-    <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent"
-        android:fitsSystemWindows="true">
+    <FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:layout_centerInParent="true"
+        android:id="@+id/frameLayout">
 
         <LinearLayout android:id="@+id/fullscreen_content_controls" style="?metaButtonBarStyle"
             android:layout_width="match_parent" android:layout_height="wrap_content"
@@ -24,11 +29,12 @@
 
             <com.facebook.login.widget.LoginButton
                 android:id="@+id/btn_sign_in" style="?metaButtonBarButtonStyle"
-                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_width="300dp" android:layout_height="wrap_content"
                 android:layout_weight="1" android:text="@string/txt_sign_in_fb"
+                android:textColor="@android:color/white"
                 android:onClick="sign_in_fb"/>
 
         </LinearLayout>
     </FrameLayout>
 
-</FrameLayout>
+</RelativeLayout>

@@ -47,31 +47,37 @@ ADDED from AndroidManifest.xml:18:17
 	android:name
 		ADDED from AndroidManifest.xml:18:25
 category#android.intent.category.LAUNCHER
-ADDED from AndroidManifest.xml:19:17
+ADDED from AndroidManifest.xml:20:17
 	android:name
-		ADDED from AndroidManifest.xml:19:27
+		ADDED from AndroidManifest.xml:20:27
 activity#join.me.joinme.MainActivity
-ADDED from AndroidManifest.xml:22:9
+ADDED from AndroidManifest.xml:23:9
 	android:label
-		ADDED from AndroidManifest.xml:24:13
+		ADDED from AndroidManifest.xml:25:13
 	android:name
-		ADDED from AndroidManifest.xml:23:13
+		ADDED from AndroidManifest.xml:24:13
 activity#com.facebook.FacebookActivity
-ADDED from AndroidManifest.xml:26:9
+ADDED from AndroidManifest.xml:27:9
 	android:label
 		ADDED from AndroidManifest.xml:30:13
 	android:configChanges
-		ADDED from AndroidManifest.xml:27:13
-	android:theme
 		ADDED from AndroidManifest.xml:29:13
+	android:theme
+		ADDED from AndroidManifest.xml:31:13
 	android:name
-		ADDED from AndroidManifest.xml:26:19
+		ADDED from AndroidManifest.xml:28:13
 meta-data#com.facebook.sdk.ApplicationId
-ADDED from AndroidManifest.xml:31:9
+ADDED from AndroidManifest.xml:33:9
 	android:name
-		ADDED from AndroidManifest.xml:31:20
+		ADDED from AndroidManifest.xml:34:13
 	android:value
-		ADDED from AndroidManifest.xml:31:66
+		ADDED from AndroidManifest.xml:35:13
+activity#join.me.joinme.Main2Activity
+ADDED from AndroidManifest.xml:37:9
+	android:label
+		ADDED from AndroidManifest.xml:39:13
+	android:name
+		ADDED from AndroidManifest.xml:38:13
 uses-sdk
 INJECTED from AndroidManifest.xml:0:0 reason: use-sdk injection requested
 MERGED from com.android.support:support-v4:22.2.1:20:5

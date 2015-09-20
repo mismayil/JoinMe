@@ -14,19 +14,19 @@
             android:layout_width="341dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_toStartOf="@+id/enterButtonHome"
-            android:hint="What's happening?" />
+            android:hint="What's happening?"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@+id/enterButtonHome" />
 
         <ImageButton
             android:id="@+id/enterButtonHome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
             android:layout_marginRight="5dp"
-            android:layout_marginTop="5dp"
             android:background="@drawable/button"
-            android:src="@drawable/enter" />
+            android:src="@drawable/enter"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true" />
 
     </RelativeLayout>
 

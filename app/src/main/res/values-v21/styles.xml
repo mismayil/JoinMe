@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="AppTheme" parent="android:Theme.Material.Light">
+        <item name="android:activatedBackgroundIndicator">@drawable/activated_background</item>
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
+    </style>
+    <style name="MyActionBar"
+        parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@color/bg_color</item>
+        <item name="android:icon">@android:color/transparent</item>
     </style>
 
     <dimen name="mainTextSize">20dp</dimen>

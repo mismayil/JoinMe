@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">JoinMe</string>
+    <string name="app_name">JOIN.ME</string>
 
     <string name="title_activity_login">LoginActivity</string>
     <string name="txt_joinMe">JOIN.ME</string>
-    <string name="txt_sign_in_fb">sign in with facebook</string>
+    <string name="txt_sign_in_fb">Sign In</string>
     <string name="title_activity_main">MainActivity</string>
 
     <string name="title_home">Home</string>
