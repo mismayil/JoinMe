@@ -34,7 +34,7 @@
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/listView2"
+        android:id="@+id/joinMeActivityListHistory"
         android:layout_below="@+id/imageView"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>

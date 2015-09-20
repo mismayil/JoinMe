@@ -6,6 +6,7 @@ import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -38,6 +39,9 @@ public class MainActivity extends Activity
     private boolean gps_enabled = false;
     private boolean network_enabled = false;
 
+    Fragment profileFragment;
+    Fragment homeFragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,9 +57,14 @@ public class MainActivity extends Activity
                 (DrawerLayout) findViewById(R.id.drawer_layout));
 
         FragmentManager fm = getFragmentManager();
+        homeFragment = fm.findFragmentById(R.id.hFragment);
+        profileFragment = fm.findFragmentById(R.id.pFragment);
 
-        Fragment profileFragment = fm.findFragmentById(R.id.pFragment);
-        Fragment homeFragment = fm.findFragmentById(R.id.hFragment);
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.hide(profileFragment);
+        ft.show(homeFragment);
+
+        ft.commit();
     }
 
     @Override
@@ -110,23 +119,32 @@ public class MainActivity extends Activity
     }
 
     public void onSectionAttached(int number) {
-        switch (number) {
-            case 1:
-                mTitle = getString(R.string.title_home);
-                break;
-            case 2:
-                mTitle = getString(R.string.title_profile);
-                break;
-            case 3:
-                mTitle = getString(R.string.title_activity_feed);
-                break;
-            case 4:
-                mTitle = getString(R.string.title_nearby);
-                break;
-            case 5:
-                mTitle = getString(R.string.title_notifications);
-                break;
+        if(homeFragment != null) {
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
 
+            switch (number) {
+                case 1:
+                    mTitle = getString(R.string.title_home);
+                    ft.show(homeFragment);
+                    ft.hide(profileFragment);
+                    break;
+                case 2:
+                    mTitle = getString(R.string.title_profile);
+                    ft.show(profileFragment);
+                    ft.hide(homeFragment);
+                    break;
+                case 3:
+                    mTitle = getString(R.string.title_activity_feed);
+                    break;
+                case 4:
+                    mTitle = getString(R.string.title_nearby);
+                    break;
+                case 5:
+                    mTitle = getString(R.string.title_notifications);
+                    break;
+
+            }
+            ft.commit();
         }
     }
 
@@ -159,9 +177,6 @@ public class MainActivity extends Activity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -195,6 +210,7 @@ public class MainActivity extends Activity
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+
             return rootView;
         }
 

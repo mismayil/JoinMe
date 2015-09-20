@@ -18,27 +18,27 @@ import join.me.joinme.model.JoinMeActivity;
 public class ProfileFragment extends Fragment {
     private ListView lv;
     private CustomHistoryListAdapter lvAdapter;
-    private ArrayList<JoinMeActivity> joinMeActivityArray = new ArrayList<>();
+    private ArrayList<JoinMeActivity> joinMeActivityArray;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        joinMeActivityArray = new ArrayList<>();
+
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        return inflater.inflate(R.layout.fragment_profile, container, false);
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
         //Fill in joinMeActivityArray
-
-        lvAdapter = new CustomHistoryListAdapter(getActivity(),joinMeActivityArray);
-        lv = (ListView) view.findViewById(R.id.joinMeActivityList);
+        joinMeActivityArray = new ArrayList<>();
+        lvAdapter = new CustomHistoryListAdapter(view.getContext(),joinMeActivityArray);
+        lv = (ListView) view.findViewById(R.id.joinMeActivityListHistory);
         lv.setAdapter(lvAdapter);
 
         super.onViewCreated(view, savedInstanceState);

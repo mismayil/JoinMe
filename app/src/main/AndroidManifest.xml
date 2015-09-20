@@ -2,8 +2,20 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="join.me.joinme" >
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <permission
+        android:name="com.google.maps.android.utils.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature"/>
+    <uses-permission android:name="com.google.maps.android.utils.permission.MAPS_RECEIVE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -35,9 +47,14 @@
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
 
+
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyBHNry8Xi3SpcJ236HJKXVeil300SjHLXs"/>
+
         <activity
-            android:name=".Processor"
-            android:label="@string/title_activity_processor" >
+            android:name=".Main2Activity"
+            android:label="@string/title_activity_main2" >
         </activity>
     </application>
 

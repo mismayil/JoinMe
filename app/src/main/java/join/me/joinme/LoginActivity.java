@@ -40,6 +40,9 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import com.google.android.gms.maps.GoogleMap;
+
+
 import static android.content.pm.PackageManager.*;
 
 /**
@@ -49,6 +52,9 @@ import static android.content.pm.PackageManager.*;
  * @see SystemUiHider
  */
 public class LoginActivity extends Activity {
+
+    private boolean gps_enabled = false;
+    private boolean network_enabled = false;
     /**
      * Whether or not the system UI should be auto-hidden after
      * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.
@@ -91,7 +97,7 @@ public class LoginActivity extends Activity {
         callbackManager = new CallbackManager.Factory().create();
         showHashKey();
         setContentView(R.layout.activity_login);
-
+        getActionBar().hide();
         final View controlsView = findViewById(R.id.fullscreen_content_controls);
         final View contentView = findViewById(R.id.fullscreen_content);
 
