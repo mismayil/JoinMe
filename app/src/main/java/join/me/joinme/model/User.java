@@ -10,39 +10,60 @@ import java.util.Date;
  * Created by mismayil on 19/09/15.
  */
 public class User {
-    private String name;
+    private String userid;
+    private String firstname;
+    private String lastname;
     private Bitmap profilePic;
-    private Date birthday;
+    private String gender;
     private ArrayList<JoinMeActivity> activities;
 
-    public User(String name, Date birthday, ArrayList<JoinMeActivity> activities) {
-        this.name = name;
-        this.birthday = birthday;
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public String getGender() {
+
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public User(String userid, String firstname, String lastname, String gender, ArrayList<JoinMeActivity> activities) {
+        this.userid = userid;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.gender = gender;
         this.activities = activities;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public Date getBirthday() {
-        return this.birthday;
     }
 
     public Bitmap getProfilePic() {
         return profilePic;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
-    }
-
     public void setActivities(ArrayList<JoinMeActivity> activities) {
         this.activities = activities;
+    }
+
+    public String getUserid() {
+        return userid;
+    }
+
+    public void setUserid(String userid) {
+        this.userid = userid;
     }
 
     public void setProfilePic(Bitmap profilePic) {

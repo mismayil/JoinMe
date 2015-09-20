@@ -1,5 +1,7 @@
 package join.me.joinme;
 
+import join.me.joinme.model.JoinMeActivity;
+import join.me.joinme.model.User;
 import join.me.joinme.util.SystemUiHider;
 
 import android.annotation.TargetApi;
@@ -75,7 +77,12 @@ public class LoginActivity extends Activity {
      */
     private SystemUiHider mSystemUiHider;
 
+    User user;
     CallbackManager callbackManager;
+    public static final String KEY_ID = "id";
+    public static final String KEY_FIRST_NAME = "first_name";
+    public static final String KEY_LAST_NAME = "last_name";
+    public static final String KEY_GENDER = "gender";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -156,16 +163,26 @@ public class LoginActivity extends Activity {
                 GraphRequest request = GraphRequest.newMeRequest(loginResult.getAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
                     @Override
                     public void onCompleted(JSONObject jsonObject, GraphResponse graphResponse) {
-                        Log.v("User Info:", graphResponse.toString());
+                        try {
+                            String userid = graphResponse.getJSONObject().getString(KEY_ID);
+                            String firstName = graphResponse.getJSONObject().getString(KEY_FIRST_NAME);
+                            String lastName = graphResponse.getJSONObject().getString(KEY_LAST_NAME);
+                            String gender = graphResponse.getJSONObject().getString(KEY_GENDER);
+                            Intent processIntent = new Intent(getApplicationContext(), Processor.class);
+                            processIntent.putExtra("userid", userid);
+                            processIntent.putExtra("firstname", firstName);
+                            processIntent.putExtra("lastname", lastName);
+                            processIntent.putExtra("gender", gender);
+                            startActivity(processIntent);
+                        } catch (org.json.JSONException ojj) {
+
+                        }
                     }
                 });
                 Bundle parameters = new Bundle();
-                parameters.putString("fields", "id, name, first_name, last_name");
-                Log.v("hello", "I was here");
+                parameters.putString("fields", "id, name, first_name, last_name, gender");
                 request.setParameters(parameters);
                 request.executeAsync();
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
             }
 
             @Override
@@ -178,11 +195,6 @@ public class LoginActivity extends Activity {
                 alertMessage("Please, log in with your own facebook account", getApplicationContext());
             }
         });
-//        Profile profile = Profile.getCurrentProfile();
-//        Log.v("FirstName", profile.getFirstName());
-//        Log.v("Lastname", profile.getLastName());
-//        Log.v("Pic", profile.getProfilePictureUri(50, 50).toString());
-//        startActivity(intent);
     }
 
     @Override

@@ -3,6 +3,7 @@
     package="join.me.joinme" >
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -35,8 +36,8 @@
             android:value="@string/facebook_app_id" />
 
         <activity
-            android:name=".Main2Activity"
-            android:label="@string/title_activity_main2" >
+            android:name=".Processor"
+            android:label="@string/title_activity_processor" >
         </activity>
     </application>
 
